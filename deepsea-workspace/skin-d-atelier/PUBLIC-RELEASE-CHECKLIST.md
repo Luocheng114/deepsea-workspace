@@ -27,10 +27,21 @@
 | LICENSE / Artwork / BGM 权利 | **READY** |
 | Release Notes | **READY** |
 | Git 仓库初始化 | **READY** |
-| git commit / push | **WAITING FOR USER ACTION** |
-| 创建 tag `v1.0.0` | **WAITING FOR USER ACTION** |
-| 创建 GitHub Release + 上传 MP4 | **WAITING FOR USER ACTION** |
-| 真实阻塞项 | **无** |
+| git commit / push | **已发布** | commit `64ea5f2` |
+| 创建 tag `v1.0.0` | **已发布** | annotated tag 已推送 |
+| 创建 GitHub Release + 上传 MP4 | **已发布** | asset 服务端 digest 与 FINAL MASTER 一致 |
+| 真实阻塞项 | **无** | |
+
+## 发布结果（2026-10-06）
+
+| 项 | 值 |
+|---|---|
+| 仓库 | <https://github.com/Luocheng114/deepsea-workspace> |
+| Release | <https://github.com/Luocheng114/deepsea-workspace/releases/tag/v1.0.0> |
+| commit | `64ea5f27c055f37f1bbccef1549d012190c47eba` |
+| tag | `v1.0.0`（annotated） |
+| 提交身份 | `Luocheng114 <44314927+Luocheng114@users.noreply.github.com>` |
+| 视频 asset | `MASTER-v6-FINAL-MIX-v3.mp4` / 14,382,939 B / digest `sha256:f424f038…f010e` ✅ 与 FINAL MASTER 逐字一致 |
 
 ---
 
@@ -214,13 +225,13 @@ BLOCKER-02（BGM 佐证）已由你提供的 Suno 链接消除。
 
 ---
 
-## 等待你授权的操作
+## 等待你授权的操作 — 已全部完成
 
-1. `git add` + `git commit`
-2. 创建 tag `v1.0.0`
-3. `git push` 到 GitHub 远端
-4. 创建 GitHub Release `v1.0.0`，上传 `MASTER-v6-FINAL-MIX-v3.mp4`
-5. 配置 `git user.name` / `git user.email`（我不代填）
+1. ~~`git add` + `git commit`~~ → 已完成（`64ea5f2`）
+2. ~~创建 tag `v1.0.0`~~ → 已完成并推送
+3. ~~`git push` 到 GitHub 远端~~ → 已完成（主分支 + tag）
+4. ~~创建 GitHub Release `v1.0.0`，上传 `MASTER-v6-FINAL-MIX-v3.mp4`~~ → 已完成并核验
+5. ~~配置 `git user.name` / `git user.email`~~ → 已完成（仅本仓库 local，未改全局）
 
 ---
 
