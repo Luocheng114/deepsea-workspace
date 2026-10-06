@@ -23,7 +23,7 @@
 
 ![DSH](https://img.shields.io/badge/DeepSeek%20Harness-0.2.0--rc.2-4d6beb)
 [![Code License](https://img.shields.io/badge/code-MIT-c0a97a)](LICENSE)
-[![Artwork](https://img.shields.io/badge/artwork-CC%20BY--NC--SA%204.0-e0a458)](LICENSE-ARTWORK)
+[![Artwork](https://img.shields.io/badge/artwork-see%20NOTICE-e0a458)](NOTICE)
 
 </div>
 
@@ -203,7 +203,7 @@ effect 销毁会还原全部样式，不需要卸载插件。
 ├─ skin.json          # 皮肤元数据
 ├─ cordis.patch.yml   # 插件注册补丁
 ├─ LICENSE            # 代码 MIT + 美术不在其内的声明
-├─ LICENSE-ARTWORK    # 美术 CC BY-NC-SA 4.0
+├─ LICENSE-ARTWORK    # 美术许可范围声明 + CC BY-NC-SA 4.0 正文（A 链与自制美术）
 └─ NOTICE             # 逐张素材来源、哈希与署名链
 ```
 
@@ -230,15 +230,18 @@ effect 销毁会还原全部样式，不需要卸载插件。
 - **代码与界面骨架** — MIT，Copyright (c) 2026 Small-tailqwq（maid-atelier 基座）
 - **女仆工坊装饰素材（A 链）** — CC BY-NC-SA 4.0
   一创 上善 → 二创 ZipZipPipe → 三创 Small-tailqwq，署名必须原样保留
-- **D 老师素材（B 链）** — 原作者子午，公开授权「不商用即可」，本仓库不含任何变现入口
+- **D 老师素材（B 链）** — © 子午，依据原作者公开的非商业使用授权使用，**不属于 CC BY-NC-SA 4.0 的授权范围**，本仓库不含任何变现入口
 
 两张女版立绘为本项目使用 AI 工具重新制作，不属于上述任何原作。
 逐张来源、SHA-256 与处理方式见 [NOTICE](NOTICE)。
 
-**授权是分开的**：
+### 许可与素材说明
 
-- 代码、脚本、配置 → [MIT](LICENSE)
-- 美术资源、角色、背景、图标、预览图（含 AI 生成与 AI 辅助）→ [CC BY-NC-SA 4.0](LICENSE-ARTWORK)，**仅限非商业使用**
+- 代码：MIT
+- maid-atelier 派生及保留美术：CC BY-NC-SA 4.0
+- 本项目原创美术：CC BY-NC-SA 4.0
+- D老师相关素材：© 子午，依据原作者公开的非商业使用授权使用，不属于 CC BY-NC-SA 4.0 的授权范围
+- 各素材的具体来源、署名、修改记录及许可范围请以 NOTICE / MEDIA-CREDITS 为准
 
 美术被打包进 `lib/` 的 CSS 或 base64 里**不会**改变它的许可。权利人提出异议即下架。
 

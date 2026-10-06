@@ -23,7 +23,7 @@ Unzip and go — **no build step, no `pnpm install`**.
 
 ![DSH](https://img.shields.io/badge/DeepSeek%20Harness-0.2.0--rc.2-4d6beb)
 [![Code License](https://img.shields.io/badge/code-MIT-c0a97a)](LICENSE)
-[![Artwork](https://img.shields.io/badge/artwork-CC%20BY--NC--SA%204.0-e0a458)](LICENSE-ARTWORK)
+[![Artwork](https://img.shields.io/badge/artwork-see%20NOTICE-e0a458)](NOTICE)
 
 </div>
 
@@ -213,7 +213,7 @@ Effect teardown restores all styling — no need to uninstall the plugin.
 ├─ skin.json          # skin metadata
 ├─ cordis.patch.yml   # plugin registration patch
 ├─ LICENSE            # MIT for code + statement that artwork is excluded
-├─ LICENSE-ARTWORK    # CC BY-NC-SA 4.0 for artwork
+├─ LICENSE-ARTWORK    # artwork license scope + CC BY-NC-SA 4.0 legal code (chain A & project-original)
 └─ NOTICE             # per-asset provenance, hashes and attribution chain
 ```
 
@@ -240,18 +240,20 @@ Three layers are stacked here, and redistribution has to satisfy all of them:
 - **Code and UI skeleton** — MIT, Copyright (c) 2026 Small-tailqwq (the maid-atelier base)
 - **Atelier decoration assets (chain A)** — CC BY-NC-SA 4.0
   上善 → ZipZipPipe → Small-tailqwq; attribution must be preserved verbatim
-- **D teacher assets (chain B)** — by 子午, publicly released for non-commercial use; this repository
-  contains no monetisation surface
+- **D teacher assets (chain B)** — © 子午, used under the original creator's public non-commercial
+  permission; **NOT licensed under CC BY-NC-SA 4.0**; this repository contains no monetisation surface
 
 The two female artwork variants were newly produced with AI image tools for this project and are not
 derived from any of the above. Full per-asset provenance, SHA-256 hashes and processing notes are in
 [NOTICE](NOTICE).
 
-**The licences are separate**:
+### Licensing and asset scope
 
-- Code, scripts, configuration → [MIT](LICENSE)
-- Artwork, character art, backgrounds, icons, previews (including AI-generated and AI-assisted) →
-  [CC BY-NC-SA 4.0](LICENSE-ARTWORK), **non-commercial only**
+- Code: MIT
+- maid-atelier-derived and retained artwork: CC BY-NC-SA 4.0
+- Project-original artwork: CC BY-NC-SA 4.0
+- D-Teacher artwork: © 子午, used under the original creator's public non-commercial permission; NOT licensed under CC BY-NC-SA 4.0
+- See NOTICE / MEDIA-CREDITS for per-asset attribution, provenance, modifications, and applicable license scope.
 
 Bundling artwork into `lib/` as CSS or base64 does **not** change its licence. Rights holders may ask
 for removal at any time.
