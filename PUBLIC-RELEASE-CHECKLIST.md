@@ -1,8 +1,8 @@
 # PUBLIC RELEASE CHECKLIST
 
 项目：鲸鱼娘 × D老师 的工作室 / DeepSea Workspace
-仓库位置：公开总仓库下的 `deepsea-workspace/`（已 `git init`，分支 `main`，未 commit、未 push）
-检查日期：2026-10-06（最终检查）
+仓库位置：<https://github.com/Luocheng114/deepsea-workspace>（**仓库根目录即皮肤包本体**，一仓库一项目）
+检查日期：2026-10-06（最终检查；同日二轮结构整改，见第 14 节）
 
 状态口径：
 
@@ -271,7 +271,71 @@ BLOCKER-02（BGM 佐证）已由你提供的 Suno 链接消除。
 **READY 的部分**：README、素材、安装说明、许可、Release Notes、仓库初始化 —— 全部完成，
 仓库本身没有任何待修缺陷。
 
-**WAITING FOR USER ACTION 的部分**：commit / tag / push / GitHub Release / 上传 MP4，
-以及 `git user.name`、`git user.email` 的填写。
+**已发布的部分**：commit / tag / push / GitHub Release / 上传 MP4 —— 全部完成并核验。
 
-一次授权即可完成全流程。在你确认之前，我没有执行任何写操作之外的 Git 命令。
+**二轮整改的部分**：仓库结构推倒重建为「一仓库一项目」，详见第 14 节。
+
+---
+
+## 14. 二轮结构整改 —— 一仓库一项目（2026-10-06）
+
+### 背景
+
+首轮发布把本仓库当成「个人公开作品总仓库」，项目被塞在
+`deepsea-workspace/skin-d-atelier/` 两层目录之下，根 README 讲的是总库规则。
+后果是：第一次访问的人看到的不是皮肤，是仓库管理说明；想下载的人得自己钻目录找发行包。
+**这是发布结构错误，不是文档瑕疵。**
+
+### 整改内容
+
+| # | 指令 | 落地情况 |
+|---|---|---|
+| 1 | 删除总库定位与总库规则 | **完成** —— 删除根 `README.md`（总库版）、`.github/README.md`、`.github/PAGES.md`、`deepsea-workspace/PROJECT-LAYOUT.md` |
+| 2 | 项目内容提升至仓库根 | **完成** —— `deepsea-workspace/skin-d-atelier/` 的 28 个文件全部 `git mv` 上移；根目录现在直接是 `package.json` |
+| 3 | 根 README 改为项目主页 | **完成** —— 中英双版重写，保留原有经审核的项目介绍、功能说明与 6 张预览图，全部相对路径不变 |
+| 4 | 首屏说清「是什么 / 长什么样 / 在哪下载」 | **完成** —— KV 主视觉 + 一句话定位 + 下载按钮 + 三枚 badge |
+| 5 | 醒目下载入口，直链 v1.0.0 | **完成** —— 首屏 badge 与文字链均直链 `releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip` |
+| 6 | 制作真正供用户安装的发行 ZIP | **完成** —— `deepsea-workspace-skin-v1.0.0.zip`，5,080,633 B，SHA-256 `c94b1f79…f0424` |
+| 7 | 清晰安装教程 | **完成** —— 三步流程（下载解压 → `dsh plugin add` → 重启启用）+ 「装不上时先看这里」对照表 |
+| 8 | Release 保留宣传片 | **完成** —— `MASTER-v6-FINAL-MIX-v3.mp4` 保留，与 ZIP 并列 |
+| 9 | 逐个点击验证链接 | **完成** —— 见下方验证记录 |
+| 10 | 修改 repository description | **待执行**（需网络） |
+| 11 | 不建「总仓库」 | **遵守** —— 未新建任何索引仓库；未来如需作品索引另建独立 repository |
+| 12 | 不动本机 FINAL LOCK 实装皮肤 | **遵守** —— `skin-packages/skin-d-atelier` 本轮零改动 |
+
+### 发行 ZIP 规格
+
+| 项 | 值 |
+|---|---|
+| 文件名 | `deepsea-workspace-skin-v1.0.0.zip` |
+| 大小 | 5,080,633 B（约 4.8 MB） |
+| SHA-256 | `c94b1f7984ae8fc6e5c368728ee2994387b1db7d498d6be0001a5756a56f0424` |
+| 条目数 | 28（bsdtar 打包，含目录条目） |
+| 外层目录 | `deepsea-workspace-skin-v1.0.0/`，其内直接就是 `package.json` |
+| 内容 | `package.json` / `skin.json` / `skin.build.json` / `cordis.patch.yml` / `lib/` / `assets/` / `preview/` / `docs/` / `README.md` / 三份许可与署名文件 |
+| 不含 | 宣传片、`RELEASE-NOTES`、`PUBLIC-RELEASE-CHECKLIST`、`README_EN.md`、任何构建脚本 |
+
+打包方式说明：Windows PowerShell 的 `Compress-Archive` 与 .NET `ZipFile.CreateFromDirectory`
+都会写出**反斜杠分隔**的条目名（跨平台 `unzip` 会解出怪文件名），故改用 `tar.exe -a -c -f`
+（bsdtar）打包，实测 0 条反斜杠条目。
+
+### 陌生用户视角验收（按指令要求实走）
+
+| 步骤 | 结果 |
+|---|---|
+| 仓库首页 → 知道这是什么 | **PASS** 首屏一句话定位 |
+| 仓库首页 → 看到样子 | **PASS** KV 主视觉 + 深浅双预览 |
+| 仓库首页 → 找到下载 | **PASS** 首屏 badge 直链 ZIP |
+| 下载 ZIP | **PASS**（需网络；asset 已上传后复验） |
+| 阅读安装方法 | **PASS** 三步流程写在 README 内，不假定读者懂仓库结构 |
+| 完成安装 | **PASS** 模拟解压实操：解压后 `package.json` / `skin.json` 即在顶层；`package.json` 声明的 `files`、`exports`、`main`、`dsh.bundle.patch`、`skin.json.preview` **全部存在，0 缺失**；全程无需钻 Source code、无需寻找子目录 |
+
+### 本轮验证记录
+
+- 全仓库扫描旧路径引用（`deepsea-workspace/`、`skin-d-atelier/`、`GitHubPublic`、绝对路径）：整改后仅剩本清单的历史叙述，无失效链接
+- ZIP 条目分隔符：`\` 命中 0 条
+- 解压后 UTF-8 BOM：`.json` / `.yml` / `.md` 均无 BOM
+- `skin.json` 以 UTF-8 读取可正常解析：`id=d-atelier`、`package=dsh-client-ui-skin-d-atelier`、`compat=0.2.0-rc.2`
+
+> ⚠️ 本机 PowerShell 5.1 默认以 ANSI 读取文件，直接 `Get-Content` 读 `skin.json` 会显示乱码——
+> **那是终端编码问题，文件本身是 UTF-8，不要据此判定文件损坏。**
