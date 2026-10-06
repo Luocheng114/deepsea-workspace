@@ -1,0 +1,13 @@
+# 统一行尾：仓库内一律 LF，避免不同平台 clone 后产生无意义 diff
+* text=auto eol=lf
+
+# 二进制资产：不做行尾转换，不做 diff
+*.webp   binary
+*.ico    binary
+*.png    binary
+*.jpg    binary
+*.mp4    binary
+*.mp3    binary
+
+# 生成物：标记为生成文件，折叠进 PR 的 diff
+lib/client.js  linguist-generated=true

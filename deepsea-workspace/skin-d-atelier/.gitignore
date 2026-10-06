@@ -1,0 +1,64 @@
+# ============================================================
+#  鲸鱼娘 × D老师 的工作室 / DeepSea Workspace
+#  公开仓库忽略规则
+#
+#  本仓库**只分发成品**：预构建的 lib/、预览图、图标与展示素材。
+#  开发期的 patch 脚本、探针、渲染中间产物与配乐源都不在这里，
+#  也不应该出现在这里。
+# ============================================================
+
+# --- 构建与依赖 ---
+node_modules/
+.pnpm-store/
+*.tsbuildinfo
+
+# --- 本地打包产物 ---
+*.tgz
+*.zip
+*.tar.gz
+
+# --- 凭据 / 密钥：永不入库 ---
+.credentials.yaml
+*credential*.json
+*credential*.yaml
+*.key
+*.pem
+.env
+.env.*
+*secret*
+
+# --- 运行态产物 ---
+*.log
+logs/
+tmp/
+.temp/
+.cache/
+
+# --- 开发工具与编辑器 ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# --- 大体积渲染中间产物（万一有人把工作目录拷进来）---
+_asm/
+_v3probe/
+99_ARCHIVE/
+_bgmfinal/
+*contact-sheet.png
+*.mp4
+*.wav
+*.mov
+*.mkv
+
+# --- 注意 ---
+# 本文件**不排除**以下内容，它们是仓库的正式组成部分：
+#   lib/*.js          预构建皮肤运行时（含内嵌美术资源）
+#   preview/*.webp    皮肤管理器使用的深/浅预览图
+#   assets/icons/*.ico 应用图标
+#   docs/images/*.webp README 展示素材
+#   LICENSE / LICENSE-ARTWORK / NOTICE
+# 如果哪天你临时需要排除其中某个正式资产，请写明确的相对路径，
+# 不要用 *.webp 这类通配规则 —— 那会把展示素材一起干掉。

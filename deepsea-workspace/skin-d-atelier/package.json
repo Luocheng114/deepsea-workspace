@@ -1,0 +1,55 @@
+{
+  "name": "dsh-client-ui-skin-d-atelier",
+  "description": "DeepSea Workspace - dual-character workspace theme for the DeepSeek Harness Web GUI (whale girl x D teacher)",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./skin.json": "./skin.json",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "scripts": {},
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "theme",
+    "skin",
+    "workspace",
+    "anime"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "jsdom": "29.1.1",
+    "lightningcss": "^1.32.0",
+    "tsdown": "0.22.14",
+    "vitest": "4.1.10"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "skin.json",
+    "skin.build.json",
+    "preview",
+    "assets/icons/*.ico",
+    "LICENSE",
+    "LICENSE-ARTWORK",
+    "NOTICE",
+    "README.md"
+  ]
+}

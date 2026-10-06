@@ -1,0 +1,31 @@
+{
+  "id": "d-atelier",
+  "name": "鲸鱼娘 × D老师 的工作室",
+  "nameEn": "DeepSea Workspace",
+  "author": "Small-tailqwq (base code) / 子午 ZIWWWWWW (D teacher artwork)",
+  "tagline": "双角色立绘、办公室背景的深浅双主题工作空间",
+  "description": "DeepSea Workspace：鲸鱼娘与 D老师的双角色工作空间皮肤。左位/右位立绘各四张任选、可独立翻转，侧栏 Q 版男女可切，办公室背景深浅双主题。代码 MIT，美术资源 CC BY-NC-SA 4.0 非商业（见 NOTICE 与 LICENSE-ARTWORK）。",
+  "tags": [
+    "anime",
+    "whale",
+    "navy",
+    "ornate",
+    "glass",
+    "workspace",
+    "dark",
+    "light"
+  ],
+  "accent": "#c5a468",
+  "bodyAttr": "data-d-atelier",
+  "dshCompatibility": "0.2.0-rc.2",
+  "package": "dsh-client-ui-skin-d-atelier",
+  "wiring": {
+    "id": "ui-skin-d-atelier",
+    "bundleWired": false
+  },
+  "preview": {
+    "light": "preview/light.webp",
+    "dark": "preview/dark.webp"
+  },
+  "order": 5
+}
