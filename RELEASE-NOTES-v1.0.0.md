@@ -49,15 +49,36 @@
 - 对话区字体、不那么二次元模式
 - 录制清场（隐藏余额气泡、小游戏按钮、鲸鱼挂件）
 
+## 下载
+
+本 Release 的 Assets 里有两个文件：
+
+| 文件 | 大小 | 说明 |
+|---|---|---|
+| `deepsea-workspace-skin-v1.0.0.zip` | 5,080,633 B（约 4.8 MB） | **皮肤本体。要装皮肤就下这个。** |
+| `MASTER-v6-FINAL-MIX-v3.mp4` | 14,382,939 B（约 13.7 MB） | 宣传片 |
+
+皮肤包 SHA-256：`c94b1f7984ae8fc6e5c368728ee2994387b1db7d498d6be0001a5756a56f0424`
+
+> ⚠️ GitHub 在 Release 页还会自动生成 `Source code (zip)` 与 `Source code (tar.gz)`。
+> **那两个是仓库源码快照，不是发行包，装不上。** 请认准上面的 ZIP。
+
 ## 安装
 
-标准 DSH 插件 bundle，无需编译，也不需要 `pnpm install`：
+无需编译，也不需要 `pnpm install`：
 
-```powershell
-dsh plugin --profile web add <包含 skin-d-atelier 的目录>
-```
+1. **解压 ZIP** 到任意目录。解压后请确认该目录里**直接就能看到 `package.json` 与 `skin.json`**
+   （如果还套着一层同名文件夹，用里面那层）。
+2. **装进 DSH profile**：
 
-装完重启一次 DSH，在设置 → 皮肤中启用「鲸鱼娘 × D老师 的工作室」。
+   ```powershell
+   dsh plugin --profile web add "<解压后的目录>"
+   ```
+
+   路径指向**包含 `package.json` 的那一层**；`web` 是 profile 名，按你自己的安装改。
+
+3. **重启一次 DSH**，进 **设置 → 皮肤**，启用「鲸鱼娘 × D老师 的工作室」。
+
 与基座 maid-atelier 互斥，同一时刻只能启用一套。
 
 ## 兼容性
@@ -86,7 +107,7 @@ D 老师素材原作者**子午**，按其公开声明「不商用即可」使�
 逐张来源、SHA-256 与处理方式见仓库内的 `NOTICE`。
 权利人如提出异议即下架。
 
-## 演示视频（本 Release 附件）
+## 宣传片（本 Release 附件）
 
 `MASTER-v6-FINAL-MIX-v3.mp4` 随本 Release 分发，**不进入 Git 历史**。
 

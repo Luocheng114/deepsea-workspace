@@ -21,6 +21,14 @@
   },
   "scripts": {},
   "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luocheng114/deepsea-workspace.git"
+  },
+  "homepage": "https://github.com/Luocheng114/deepsea-workspace#readme",
+  "bugs": {
+    "url": "https://github.com/Luocheng114/deepsea-workspace/issues"
+  },
   "keywords": [
     "dsh",
     "deepseek-harness",

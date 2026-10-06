@@ -6,11 +6,20 @@
 
 ### 鲸鱼娘 × D老师 的工作室
 
-A dual-character theme workspace skin built for the DeepSeek Harness Web GUI.
-An office backdrop, matched light and dark palettes, two independently placed character slots,
-and a chibi who lives in the sidebar.
+**A dual-character workspace skin for the DeepSeek Harness Web GUI.**
+Install it and the interface becomes a deep-blue office: matched light and dark palettes,
+two independently placed character slots, and a chibi who lives in the sidebar.
 
 `[中文](README.md) | English`
+
+<br>
+
+[![Download](https://img.shields.io/badge/⬇_Download_Skin-v1.0.0-2ea44f?style=for-the-badge)](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip)
+
+[**Download `deepsea-workspace-skin-v1.0.0.zip`**](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip)
+　·　[Install ↓](#install)　·　[Screenshots ↓](#what-it-looks-like)　·　[All releases](https://github.com/Luocheng114/deepsea-workspace/releases)
+
+Unzip and go — **no build step, no `pnpm install`**.
 
 ![DSH](https://img.shields.io/badge/DeepSeek%20Harness-0.2.0--rc.2-4d6beb)
 [![Code License](https://img.shields.io/badge/code-MIT-c0a97a)](LICENSE)
@@ -20,16 +29,90 @@ and a chibi who lives in the sidebar.
 
 ---
 
-## About
+## What it is
 
 A **presentation-layer only** client skin plugin. It injects nothing server-side, emits no Cordis events,
 and never touches model requests. `apply()` does three things: set a scoped attribute on `<html>`,
 swap in the office backdrop for the active theme, and mount the character artwork onto transparent layers.
-When the effect is destroyed, every CSS rule and DOM node it wrote is restored.
+When the effect is destroyed, every CSS rule and DOM node it wrote is restored — turning the skin off
+leaves nothing behind.
 
 Derived from [maid-atelier by Small-tailqwq](https://github.com/Small-tailqwq/dsh-deep-whale),
 keeping the deep-blue lace skeleton and its attribution chain, with D teacher on the right slot and the
 art direction pulled toward a deep-blue office.
+
+**Runtime**: DeepSeek Harness `0.2.0-rc.2` (verified). Other versions are not verified.
+
+## What it looks like
+
+Light and dark are each a matched set — backdrop, frosted glass and edge trim all swap together,
+following DSH's own theme setting:
+
+<table>
+<tr>
+<td align="center" width="50%"><img src="preview/light.webp" alt="Light workspace" width="100%"></td>
+<td align="center" width="50%"><img src="preview/dark.webp" alt="Dark workspace" width="100%"></td>
+</tr>
+<tr>
+<td align="center">Light Workspace</td>
+<td align="center">Dark Workspace</td>
+</tr>
+</table>
+
+## ⬇ Download
+
+| What you want | Which file | Where |
+|---|---|---|
+| **The skin** | `deepsea-workspace-skin-v1.0.0.zip` | [**v1.0.0 release page**](https://github.com/Luocheng114/deepsea-workspace/releases/tag/v1.0.0) → Assets |
+| **The demo reel** | `MASTER-v6-FINAL-MIX-v3.mp4` (≈13.7 MB) | Same page, Assets |
+
+> ### ⚠️ Don't pick the wrong one
+> GitHub also auto-generates `Source code (zip)` and `Source code (tar.gz)` on every release page.
+> **Those are repository snapshots, not the distribution — they will not install.**
+> Take `deepsea-workspace-skin-v1.0.0.zip`.
+
+## Install
+
+**Step 1 · Download and unzip**
+
+Download [`deepsea-workspace-skin-v1.0.0.zip`](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip)
+and unzip it into **any directory you keep plugins in**, for example:
+
+```text
+C:\Users\<you>\dsh-skins\deepsea-workspace-skin-v1.0.0\
+```
+
+Check that **`package.json` and `skin.json` sit directly inside that folder**.
+If there is another same-named folder nested inside, use the inner one instead.
+
+**Step 2 · Add it to your DSH profile**
+
+Run this in a terminal, replacing the path with the folder you just unzipped:
+
+```powershell
+dsh plugin --profile web add "C:\Users\<you>\dsh-skins\deepsea-workspace-skin-v1.0.0"
+```
+
+- The path must point at the directory that **contains `package.json`**.
+- `web` in `--profile web` is the profile name — change it to match your install; if unsure, try `web` first.
+- For local development a `link:` form works too:
+  `dsh plugin --profile web add link:<absolute path>`.
+
+**Step 3 · Restart DSH, then enable**
+
+Close and reopen DSH, go to **Settings → Skin**, and select
+**“鲸鱼娘 × D老师 的工作室”** in the skin manager.
+
+> This skin is **mutually exclusive** with the maid-atelier base skin — only one can be active at a time.
+
+### If it won't install
+
+| Symptom | Likely cause |
+|---|---|
+| “Cannot find `package.json`” | The path points at an outer directory — use the one that really contains it |
+| `dsh` is not recognised | DSH is not on PATH — call it via its full install path, or open a new terminal |
+| Installed, but not listed in Settings | DSH was not restarted, or the profile name is wrong |
+| Sidebar or settings get scrambled | Two mutually exclusive skins are enabled at once — keep only one |
 
 ## Features
 
@@ -46,19 +129,6 @@ art direction pulled toward a deep-blue office.
 
 > Extra switches such as the reduced-akimbo mode, conversation font, per-model artwork visibility and
 > clean-stage-for-recording live in **Settings → Skin** inside DSH. This README does not repeat them all.
-
-## Light & Dark
-
-<table>
-<tr>
-<td align="center" width="50%"><img src="preview/light.webp" alt="Light workspace" width="100%"></td>
-<td align="center" width="50%"><img src="preview/dark.webp" alt="Dark workspace" width="100%"></td>
-</tr>
-<tr>
-<td align="center">Light Workspace</td>
-<td align="center">Dark Workspace</td>
-</tr>
-</table>
 
 ## Characters
 
@@ -90,28 +160,6 @@ same image on both sides.
 <td align="center">Sidebar chibi (background layer)</td>
 </tr>
 </table>
-
-## Installation
-
-This package is a plain DSH plugin bundle. No build step, no `pnpm install`.
-
-1. **Download or clone this repository** to get the `skin-d-atelier/` directory.
-2. **Add it to your DSH profile:**
-
-   ```powershell
-   dsh plugin --profile web add <path containing skin-d-atelier>
-   ```
-
-   `<path>` is the directory that **contains `package.json`**, not the repository root.
-   During local development a `link:` form also works:
-   `dsh plugin --profile web add link:/abs/path/to/skin-d-atelier`.
-
-3. **Restart DSH once.**
-4. **Enable the skin** from the skin manager in settings, choosing
-   “鲸鱼娘 × D老师 的工作室”. It is **mutually exclusive** with the maid-atelier base skin.
-
-> **Verified on** DSH `0.2.0-rc.2`. Other versions are **not verified**.
-> `dsh plugin` forwards to pnpm inside the profile directory; adjust the profile name to match yours.
 
 ## Usage
 
@@ -152,8 +200,10 @@ Effect teardown restores all styling — no need to uninstall the plugin.
 
 ## Project structure
 
+**The repository root is the skin package itself** — `package.json` sits directly at the top level:
+
 ```text
-skin-d-atelier/
+.
 ├─ lib/
 │  ├─ index.js        # plugin entry
 │  └─ client.js       # skin runtime (prebuilt, artwork embedded)
@@ -170,8 +220,8 @@ skin-d-atelier/
 ## Demo video
 
 The reel is not committed to this repository — a 14 MB binary should not ride along in Git history.
-It lives in the **Assets of the v1.0.0 Release**: open the repository's **Releases** page and download
-`MASTER-v6-FINAL-MIX-v3.mp4`.
+It lives in the [**Assets of the v1.0.0 Release**](https://github.com/Luocheng114/deepsea-workspace/releases/tag/v1.0.0);
+download `MASTER-v6-FINAL-MIX-v3.mp4` there.
 
 | | |
 |---|---|
