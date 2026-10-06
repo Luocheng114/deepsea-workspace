@@ -339,3 +339,64 @@ BLOCKER-02（BGM 佐证）已由你提供的 Suno 链接消除。
 
 > ⚠️ 本机 PowerShell 5.1 默认以 ANSI 读取文件，直接 `Get-Content` 读 `skin.json` 会显示乱码——
 > **那是终端编码问题，文件本身是 UTF-8，不要据此判定文件损坏。**
+
+---
+
+## 15. 本机公开项目工作区与仓库层级（定版口径，2026-10-06）
+
+> 本节是**结构口径的唯一权威说明**。以后任何会话、任何协作者，都按本节理解目录。
+
+### 层级定义
+
+| 层级 | 是什么 | 不是什么 |
+|---|---|---|
+| `F:\GitHubPublic\` | 本机**所有公开 GitHub 项目的父级工作区**（一个普通目录） | ❌ 不属于任何单独的 Git repository，本身没有 `.git` |
+| `F:\GitHubPublic\<项目名>\` | **一个项目 = 一个独立目录 = 一个独立 Git repository** | ❌ 不是子模块、不是子目录套娃 |
+| 该子目录的**根** | 即该项目本体（`README.md` / `skin.json` / `lib\` … 直接在这一层） | ❌ 不再有中间层 |
+
+对应关系示例：
+
+```text
+F:\GitHubPublic\deepsea-workspace\   ←→   https://github.com/Luocheng114/deepsea-workspace
+```
+
+### 推荐结构
+
+```text
+F:\GitHubPublic\
+├─ deepsea-workspace\          ← 独立 Git 仓库 = Luocheng114/deepsea-workspace
+│  ├─ .git\
+│  ├─ README.md
+│  ├─ skin.json
+│  └─ ...
+├─ Dog-wallpaper-engine\       ← 另一个独立项目 / 独立仓库
+└─ future-project\             ← 以后其他公开项目
+```
+
+### 两条硬口径
+
+1. **「仓库根目录即项目本体」依然成立** —— 只是这句话里的「仓库根」指的是
+   `F:\GitHubPublic\<项目名>\`，**不是** `F:\GitHubPublic\`。
+2. **禁止再把 `F:\GitHubPublic\` 本身当成某个项目的 repository root。**
+   它只是父级工作区；在它上面 `git init`、往里直接放 `skin.json` / `lib\` 之类项目文件，
+   都属于错误操作。
+
+> 关于 GitHub 侧的「作品总索引仓库」：那是**另外新建的一个 repository**，
+> 与本机这个父目录 `F:\GitHubPublic\` 不是同一个概念，也不得与 `deepsea-workspace` 混用。
+
+### 2026-10-06 层级搬迁记录
+
+首轮发布曾把 `F:\GitHubPublic\` 本身当作仓库根（含 `.git`），项目文件摊在父目录里——错误。
+同日晚按「物理搬家、零重写」方案修正：
+
+| 项 | 结果 |
+|---|---|
+| `.git` 与全部项目文件 | 整体移入 `F:\GitHubPublic\deepsea-workspace\` |
+| `F:\GitHubPublic\` | 恢复为纯父级工作区，根目录无 `.git` |
+| commit history / branch / tag | **完全不变**（`main` = `25582b1`，`v1.0.0` = `dbb032e`） |
+| remote | 不变，仍为 `Luocheng114/deepsea-workspace` |
+| 远端历史 | **未 force、未重写**；main 未被改动 |
+| tag `v1.0.0` | 仅将 tag 引用由旧的「总库套子目录」commit 重指到整改后的 `25582b1`；未动 main |
+| Release `v1.0.0` | 标题、正文、两个资产（皮肤 ZIP + 宣传片）**均未变**，非草稿 |
+| GitHub `Source code (zip)` | 实测解压后直接是项目本体，**无** `deepsea-workspace` / `skin-d-atelier` 套娃 |
+| 本机 FINAL LOCK 实装皮肤 | **零改动** |
