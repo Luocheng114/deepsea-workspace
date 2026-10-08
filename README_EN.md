@@ -14,9 +14,9 @@ two independently placed character slots, and a chibi who lives in the sidebar.
 
 <br>
 
-[![Download](https://img.shields.io/badge/⬇_Download_Skin-v1.0.0-2ea44f?style=for-the-badge)](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip)
+[![Download](https://img.shields.io/badge/⬇_Download_Skin-v1.0.1-2ea44f?style=for-the-badge)](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.1/deepsea-workspace-skin-v1.0.1.zip)
 
-[**Download `deepsea-workspace-skin-v1.0.0.zip`**](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip)
+[**Download `deepsea-workspace-skin-v1.0.1.zip`**](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.1/deepsea-workspace-skin-v1.0.1.zip)
 　·　[Install ↓](#install)　·　[Screenshots ↓](#what-it-looks-like)　·　[All releases](https://github.com/Luocheng114/deepsea-workspace/releases)
 
 Unzip and go — **no build step, no `pnpm install`**.
@@ -63,23 +63,23 @@ following DSH's own theme setting:
 
 | What you want | Which file | Where |
 |---|---|---|
-| **The skin** | `deepsea-workspace-skin-v1.0.0.zip` | [**v1.0.0 release page**](https://github.com/Luocheng114/deepsea-workspace/releases/tag/v1.0.0) → Assets |
-| **The demo reel** | `MASTER-v6-FINAL-MIX-v3.mp4` (≈13.7 MB) | Same page, Assets |
+| **The skin** | `deepsea-workspace-skin-v1.0.1.zip` | [**v1.0.1 release page**](https://github.com/Luocheng114/deepsea-workspace/releases/tag/v1.0.1) → Assets |
+| **The demo reel** | `MASTER-v6-FINAL-MIX-v3.mp4` (≈13.7 MB) | [Original v1.0.0 release](https://github.com/Luocheng114/deepsea-workspace/releases/tag/v1.0.0), Assets |
 
 > ### ⚠️ Don't pick the wrong one
 > GitHub also auto-generates `Source code (zip)` and `Source code (tar.gz)` on every release page.
 > **Those are repository snapshots, not the distribution — they will not install.**
-> Take `deepsea-workspace-skin-v1.0.0.zip`.
+> Take `deepsea-workspace-skin-v1.0.1.zip`.
 
 ## Install
 
 **Step 1 · Download and unzip**
 
-Download [`deepsea-workspace-skin-v1.0.0.zip`](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip)
+Download [`deepsea-workspace-skin-v1.0.1.zip`](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.1/deepsea-workspace-skin-v1.0.1.zip)
 and unzip it into **any directory you keep plugins in**, for example:
 
 ```text
-C:\Users\<you>\dsh-skins\deepsea-workspace-skin-v1.0.0\
+C:\Users\<you>\dsh-skins\deepsea-workspace-skin-v1.0.1\
 ```
 
 Check that **`package.json` and `skin.json` sit directly inside that folder**.
@@ -90,7 +90,7 @@ If there is another same-named folder nested inside, use the inner one instead.
 Run this in a terminal, replacing the path with the folder you just unzipped:
 
 ```powershell
-dsh plugin --profile web add "C:\Users\<you>\dsh-skins\deepsea-workspace-skin-v1.0.0"
+dsh plugin --profile web add "C:\Users\<you>\dsh-skins\deepsea-workspace-skin-v1.0.1"
 ```
 
 - The path must point at the directory that **contains `package.json`**.
@@ -100,8 +100,13 @@ dsh plugin --profile web add "C:\Users\<you>\dsh-skins\deepsea-workspace-skin-v1
 
 **Step 3 · Restart DSH, then enable**
 
-Close and reopen DSH, go to **Settings → Skin**, and select
-**“鲸鱼娘 × D老师 的工作室”** in the skin manager.
+Close and reopen DSH. Adding this package wires the client skin without requiring a separate skin manager.
+
+- Without deep-whale manager: use **Settings → Workspace Skin** for artwork, chibi, schedules and composer controls.
+- With deep-whale manager: keep using **Settings → Skin Management**. The built-in page yields automatically.
+- The official skin-center does not consume this package's detailed customization protocol. Its own skin catalogue can coexist with the built-in page.
+
+**Existing v1.0.0 users**: that distribution omitted a standalone settings entry. Update to v1.0.1, run `add` again against the new folder and restart DSH. Refreshing the browser does not update the old package.
 
 > This skin is **mutually exclusive** with the maid-atelier base skin — only one can be active at a time.
 
@@ -111,7 +116,7 @@ Close and reopen DSH, go to **Settings → Skin**, and select
 |---|---|
 | “Cannot find `package.json`” | The path points at an outer directory — use the one that really contains it |
 | `dsh` is not recognised | DSH is not on PATH — call it via its full install path, or open a new terminal |
-| Installed, but not listed in Settings | DSH was not restarted, or the profile name is wrong |
+| Installed, but no settings entry | v1.0.0 omitted the standalone entry; update to v1.0.1, then check profile and restart |
 | Sidebar or settings get scrambled | Two mutually exclusive skins are enabled at once — keep only one |
 
 ## Features
@@ -128,7 +133,7 @@ Close and reopen DSH, go to **Settings → Skin**, and select
 | **Mobile layout** | Portrait breakpoint at ≤700px; corner, topbar and rail navigation modes. |
 
 > Extra switches such as the reduced-akimbo mode, conversation font, per-model artwork visibility and
-> clean-stage-for-recording live in **Settings → Skin** inside DSH. This README does not repeat them all.
+> clean-stage-for-recording live in **Settings → Workspace Skin** (or the existing deep-whale manager page) inside DSH. This README does not repeat them all.
 
 ## Characters
 
@@ -163,7 +168,7 @@ same image on both sides.
 
 ## Usage
 
-After enabling, adjust these under **Settings → Skin**. Changes reload through config; a restart is
+After enabling, adjust these under **Settings → Workspace Skin** (or the existing deep-whale manager page). Changes reload through config; a restart is
 usually not needed:
 
 - **Left / right artwork** — any of four, or off
@@ -185,14 +190,12 @@ Effect teardown restores all styling — no need to uninstall the plugin.
 | DSH version | `0.2.0-rc.2` verified; `0.1.x` and other RCs **not verified** |
 | Platform | Windows 11 with Chrome / Electron |
 | Resolution | Desktop 1920×1034 baseline; artwork and trim scale with the window, with tighter gaps on narrow windows |
-| Other skins | Mutually exclusive with maid-atelier and deep-whale-manager |
+| Other skins | Do not enable alongside maid-atelier or other full skins; deep-whale-manager is a manager, not a competing skin |
 | Mobile | Portrait breakpoint at ≤700px, three navigation modes |
 
 ## Known limitations
 
-- The official skin centre (`web-ui-skin-center`) and the base deep-whale manager **cannot both be
-  enabled** — symptoms are a missing settings button or a scrambled sidebar. This package assumes you
-  run exactly one of them.
+- Do not stack the official skin-center and standalone deep-whale manager. This package installs neither. v1.0.1 includes its own detailed settings page, yields when an external manager actually consumes its configuration, and restores the fallback when that manager releases it.
 - Artwork alignment relies on built-in head-metrics constants; swapping an image requires recomputing them.
 - Recording requires manually hiding the balance pill, mini-game launcher and whale widget via the
   clean-stage switch.

@@ -14,9 +14,9 @@
 
 <br>
 
-[![Download](https://img.shields.io/badge/⬇_下载_皮肤包-v1.0.0-2ea44f?style=for-the-badge)](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip)
+[![Download](https://img.shields.io/badge/⬇_下载_皮肤包-v1.0.1-2ea44f?style=for-the-badge)](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.1/deepsea-workspace-skin-v1.0.1.zip)
 
-[**下载 `deepsea-workspace-skin-v1.0.0.zip`**](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip)
+[**下载 `deepsea-workspace-skin-v1.0.1.zip`**](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.1/deepsea-workspace-skin-v1.0.1.zip)
 　·　[安装说明 ↓](#安装三步)　·　[效果图 ↓](#它长什么样)　·　[全部版本](https://github.com/Luocheng114/deepsea-workspace/releases)
 
 解压即用，**不用编译、不用 `pnpm install`**。
@@ -59,22 +59,22 @@ effect 被销毁时会把所有写入的 CSS 与 DOM 原样还原。关掉皮肤
 
 | 你想要什么 | 下载哪个文件 | 在哪 |
 |---|---|---|
-| **皮肤本体** | `deepsea-workspace-skin-v1.0.0.zip` | [**v1.0.0 下载页**](https://github.com/Luocheng114/deepsea-workspace/releases/tag/v1.0.0) → Assets |
-| **宣传片** | `MASTER-v6-FINAL-MIX-v3.mp4`（约 13.7 MB） | 同上，Assets |
+| **皮肤本体** | `deepsea-workspace-skin-v1.0.1.zip` | [**v1.0.1 下载页**](https://github.com/Luocheng114/deepsea-workspace/releases/tag/v1.0.1) → Assets |
+| **宣传片** | `MASTER-v6-FINAL-MIX-v3.mp4`（约 13.7 MB） | [v1.0.0 原发行页](https://github.com/Luocheng114/deepsea-workspace/releases/tag/v1.0.0)，Assets |
 
 > ### ⚠️ 别下错
 > GitHub 在 Release 页还会自动生成 `Source code (zip)` 和 `Source code (tar.gz)`。
-> **那两个是仓库源码快照，不是发行包，装不上。** 请认准 `deepsea-workspace-skin-v1.0.0.zip`。
+> **那两个是仓库源码快照，不是发行包，装不上。** 请认准 `deepsea-workspace-skin-v1.0.1.zip`。
 
 ## 安装（三步）
 
 **第 1 步 · 下载并解压**
 
-下载 [`deepsea-workspace-skin-v1.0.0.zip`](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.0/deepsea-workspace-skin-v1.0.0.zip)，
+下载 [`deepsea-workspace-skin-v1.0.1.zip`](https://github.com/Luocheng114/deepsea-workspace/releases/download/v1.0.1/deepsea-workspace-skin-v1.0.1.zip)，
 解压到**任意一个你自己放插件的目录**，例如：
 
 ```text
-C:\Users\<你>\dsh-skins\deepsea-workspace-skin-v1.0.0\
+C:\Users\<你>\dsh-skins\deepsea-workspace-skin-v1.0.1\
 ```
 
 解压后请确认：**这个文件夹里直接就能看到 `package.json` 和 `skin.json`**。
@@ -85,7 +85,7 @@ C:\Users\<你>\dsh-skins\deepsea-workspace-skin-v1.0.0\
 在终端里执行（把路径换成你刚解压出来的目录）：
 
 ```powershell
-dsh plugin --profile web add "C:\Users\<你>\dsh-skins\deepsea-workspace-skin-v1.0.0"
+dsh plugin --profile web add "C:\Users\<你>\dsh-skins\deepsea-workspace-skin-v1.0.1"
 ```
 
 - 路径要指向**包含 `package.json` 的那一层**。
@@ -94,8 +94,13 @@ dsh plugin --profile web add "C:\Users\<你>\dsh-skins\deepsea-workspace-skin-v1
 
 **第 3 步 · 重启 DSH，然后启用**
 
-关掉再打开 DSH，进 **设置 → 皮肤**，在皮肤管理器里选中
-**「鲸鱼娘 × D老师 的工作室」** 即可。
+关掉再打开 DSH。本皮肤随 `add` 接入客户端，无需另装皮肤管理器。
+
+- 未安装 deep-whale manager：进 **设置 → 工作室皮肤**，调整本皮肤的立绘、Q 版、时段和输入框设置。
+- 已安装 deep-whale manager：继续进 **设置 → 皮肤管理**；内置设置页自动让位，不重复注册。
+- 官方 skin-center 负责它自己的皮肤目录，不支持本皮肤的详细配置协议；本皮肤的内置设置页可与它共存。
+
+**已下载 v1.0.0 的用户**：该包漏带独立设置入口。请更新到 v1.0.1 并对新目录重新执行 `add`，再重启 DSH；只刷新网页不能更新旧包。
 
 > 本皮肤与基座 maid-atelier **互斥**，同一时刻只能启用一套。
 
@@ -105,7 +110,7 @@ dsh plugin --profile web add "C:\Users\<你>\dsh-skins\deepsea-workspace-skin-v1
 |---|---|
 | 报错找不到 `package.json` | 路径指到了外层目录，改成真正含 `package.json` 的那层 |
 | `dsh` 不是可识别的命令 | DSH 没加进 PATH，用 DSH 的完整安装路径调用，或重开一个终端 |
-| 装好了但设置里没有 | 忘了重启 DSH；或 profile 名填错了 |
+| 装好了但设置里没有 | v1.0.0 漏带独立入口，请更新到 v1.0.1；新版再核对 profile 名与是否重启 |
 | 皮肤列表里两套同时开着导致错乱 | 与 maid-atelier 互斥，只留一套 |
 
 ## 功能
@@ -122,7 +127,7 @@ dsh plugin --profile web add "C:\Users\<你>\dsh-skins\deepsea-workspace-skin-v1
 | **移动端适配** | 竖屏阈值 ≤700px；导航支持角标 / 顶栏 / 纵向 rail 三种方式。 |
 
 > 「不那么二次元模式」「对话区字体」「按所选模型显隐立绘」「录制清场」等开关见 DSH 内
-> **设置 → 皮肤 → 鲸鱼娘 × D老师 的工作室**，本 README 不逐项复述。
+> **设置 → 工作室皮肤**（已有 deep-whale manager 时在原皮肤管理页），本 README 不逐项复述。
 
 ## 角色
 
@@ -156,7 +161,7 @@ dsh plugin --profile web add "C:\Users\<你>\dsh-skins\deepsea-workspace-skin-v1
 
 ## 使用
 
-启用之后在 **设置 → 皮肤** 里调这几项即可，改动走配置热重载，通常不用重启：
+启用之后在 **设置 → 工作室皮肤**（或已有 deep-whale manager 的皮肤管理页）里调这几项，外观修改即时生效，不用重启：
 
 - **左位立绘 / 右位立绘**：四张任选或关闭
 - **左位水平翻转 / 右位水平翻转**：单边镜像
@@ -177,13 +182,12 @@ effect 销毁会还原全部样式，不需要卸载插件。
 | DSH 版本 | `0.2.0-rc.2` 实测可用；`0.1.x` 与其它 RC **未验证** |
 | 平台 | Windows 11 + Chrome / Electron 实测 |
 | 分辨率 | 桌面 1920×1034 基准；立绘与边饰随窗口伸缩，窄窗口下留白会变小 |
-| 与其它皮肤 | 与 maid-atelier、deep-whale-manager 互斥 |
+| 与其它皮肤 | 与 maid-atelier 等同类整套皮肤不要同时启用；deep-whale-manager 是管理器，不是互斥皮肤 |
 | 移动端 | 竖屏阈值 ≤700px，导航三模式 |
 
 ## 已知限制
 
-- 官方皮肤中心（`web-ui-skin-center`）与基座的 deep-whale 皮肤管理器**不能同时启用**，
-  症状是设置按钮消失或侧栏错乱。本包假定你在用其中一套。
+- 官方 skin-center 与独立 deep-whale manager 仍不要叠装；本包不强制安装其中任何一个。v1.0.1 自带详细设置页，外部管理器实际接管配置时自动让位，退出时恢复。
 - 立绘对齐依赖内置的头部度量常量，换图后需要重算，不是完全自动的。
 - 录屏时右下角的余额气泡、小游戏按钮、鲸鱼挂件需要手动用「录制清场」开关隐藏。
 - 演示视频不随仓库分发，作为 Release 附件（见下）。
